@@ -97,7 +97,7 @@ export function HeroSection({ section }: HeroSectionProps) {
                 </div>
 
                 <div className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-6">
-                  <div className="flex items-end justify-between h-32 gap-2">
+                  <div className="flex items-end justify-between h-24 gap-2">
                     {(chart?.bars ?? []).map((height, i) => (
                       <div
                         key={`${height}-${i}`}
@@ -106,9 +106,11 @@ export function HeroSection({ section }: HeroSectionProps) {
                       />
                     ))}
                   </div>
-                  <div className="text-[11px] uppercase tracking-widest text-zinc-500 mt-4">
-                    {chart?.label}
-                  </div>
+                  {chart?.label ? (
+                    <div className="text-[11px] uppercase tracking-widest text-zinc-500 mt-4">
+                      {chart.label}
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

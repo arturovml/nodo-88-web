@@ -18,8 +18,7 @@ export const homePageContent = {
         { kind: "metric", label: "Recuperación", value: "81%" },
         {
           kind: "chart",
-          label:
-            "Evolución de riesgo y recuperación — Visualización conceptual del impacto del control de dispositivos en esquemas de financiamiento.",
+          label: "",
           bars: [40, 65, 55, 80, 70, 85, 75, 90],
         },
         { kind: "status", label: "Sistema activo", value: "99.8% uptime", tone: "success" },
