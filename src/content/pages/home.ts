@@ -8,17 +8,18 @@ export const homePageContent = {
     {
       id: "hero",
       heading: "Control y gestión de dispositivos financiados",
-      subheading: "Riesgo, operación e implementación real",
+      subheading: "CONTROL TECNOLÓGICO PARA CRÉDITO Y COBRANZA",
       heroImageSrc: "/images/hero.jpg",
       body:
         "Implementamos soluciones tecnológicas para riesgo crediticio, financiamiento de dispositivos y cobranza. Orientado a fintechs, bancos y retail que necesitan control operativo y decisiones basadas en datos.",
       items: [
-        { kind: "metric", label: "NPL", value: "2.4%" },
+        { kind: "metric", label: "Riesgo (NPL)", value: "2.4%" },
         { kind: "metric", label: "Aprobación", value: "68%" },
-        { kind: "metric", label: "Recovery", value: "81%" },
+        { kind: "metric", label: "Recuperación", value: "81%" },
         {
           kind: "chart",
-          label: "Evolución de riesgo mensual",
+          label:
+            "Evolución de riesgo y recuperación — Visualización conceptual del impacto del control de dispositivos en esquemas de financiamiento.",
           bars: [40, 65, 55, 80, 70, 85, 75, 90],
         },
         { kind: "status", label: "Sistema activo", value: "99.8% uptime", tone: "success" },
@@ -60,8 +61,8 @@ export const homePageContent = {
       heading: "Indicadores",
       items: [
         { kind: "stat", value: "15+", label: "Años de experiencia combinada" },
-        { kind: "stat", value: "120M+", label: "USD en cartera gestionada" },
-        { kind: "stat", value: "99.8%", label: "Disponibilidad del sistema" },
+        { kind: "stat", value: "+10M", label: "Dispositivos gestionados globalmente" },
+        { kind: "stat", value: "24/7", label: "Capacidad de bloqueo y recuperación remota" },
         { kind: "stat", value: "8", label: "Países de operación" },
       ],
     },
