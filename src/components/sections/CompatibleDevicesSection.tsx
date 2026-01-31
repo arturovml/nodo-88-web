@@ -45,11 +45,11 @@ export function CompatibleDevicesSection({
             return (
             <div
               key={device}
-              className="flex items-center gap-3 border border-zinc-800/70 bg-zinc-950/50 rounded-lg px-4 py-4"
+              className="flex flex-col items-center gap-3 border border-zinc-800/70 bg-zinc-950/50 rounded-lg px-4 py-6 text-center"
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800/70 bg-slate-900/70 text-slate-200">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-800/70 bg-slate-900/70 text-slate-200">
                 {Icon ? (
-                  <Icon className="h-5 w-5 text-slate-200" aria-hidden="true" />
+                  <Icon className="h-6 w-6 text-slate-200" aria-hidden="true" />
                 ) : null}
               </span>
               <span className="text-sm text-zinc-200 leading-relaxed">
