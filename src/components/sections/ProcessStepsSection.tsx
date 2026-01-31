@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
 import type { ProcessStep, SectionContent, SectionItem } from "@/content/types";
 
 type ProcessStepsSectionProps = {
@@ -10,6 +13,7 @@ const isStep = (item: SectionItem): item is ProcessStep =>
 export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
   const items = section.items ?? [];
   const steps = items.filter(isStep);
+  const processImageSrc = section.processImageSrc?.trim();
 
   return (
     <section
@@ -29,6 +33,20 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
           <p className="text-lg text-zinc-400 leading-relaxed">
             {section.body}
           </p>
+        </div>
+
+        <div className="mb-12 max-w-5xl">
+          {processImageSrc ? (
+            <Image
+              src={processImageSrc}
+              alt={section.heading}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
+            />
+          ) : (
+            <ImageSlotPlaceholder label="Process image" aspect="16:9" />
+          )}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">

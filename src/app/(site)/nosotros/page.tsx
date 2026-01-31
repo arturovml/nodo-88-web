@@ -23,6 +23,7 @@ export default function AboutPage() {
         title={hero.heading}
         description={hero.body ?? nosotrosPageContent.description ?? ""}
         eyebrow={hero.subheading}
+        imageSrc={hero.aboutImageSrc}
       />
       <StatsStripSection section={stats} />
       <ProcessStepsSection section={process} />

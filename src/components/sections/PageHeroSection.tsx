@@ -1,14 +1,26 @@
+import Image from "next/image";
+
+import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
+
 interface PageHeroSectionProps {
   title: string;
   description: string;
   eyebrow?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export function PageHeroSection({
   title,
   description,
   eyebrow,
+  imageSrc,
+  imageAlt,
 }: PageHeroSectionProps) {
+  const resolvedImageSrc = imageSrc?.trim();
+  const resolvedImageAlt = imageAlt?.trim() || title;
+  const hasImageSlot = imageSrc !== undefined;
+
   return (
     <section className="pt-32 pb-16 lg:pt-36 lg:pb-20 border-b border-slate-800/60">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -23,6 +35,22 @@ export function PageHeroSection({
           </h1>
           <p className="text-lg text-zinc-400 leading-relaxed">{description}</p>
         </div>
+
+        {resolvedImageSrc ? (
+          <div className="mt-10 max-w-4xl">
+            <Image
+              src={resolvedImageSrc}
+              alt={resolvedImageAlt}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
+            />
+          </div>
+        ) : hasImageSlot ? (
+          <div className="mt-10 max-w-4xl">
+            <ImageSlotPlaceholder label="About image" aspect="4:3" />
+          </div>
+        ) : null}
       </div>
     </section>
   );

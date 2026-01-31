@@ -149,6 +149,10 @@ export type SectionContent = {
   nextStepsHeading?: string;
   nextSteps?: string[];
   items?: SectionItem[];
+  heroImageSrc?: string;
+  servicesImageSrc?: string;
+  processImageSrc?: string;
+  aboutImageSrc?: string;
 };
 
 export type PageContent = {

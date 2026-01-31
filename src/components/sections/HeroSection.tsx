@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
 import type {
   CtaItem,
   HeroChart,
@@ -30,6 +32,7 @@ export function HeroSection({ section }: HeroSectionProps) {
   const ctas = items.filter(isCta);
   const primaryCta = ctas.find((cta) => cta.variant === "primary") ?? ctas[0];
   const secondaryCta = ctas.find((cta) => cta.variant === "secondary") ?? ctas[1];
+  const heroImageSrc = section.heroImageSrc?.trim();
 
   return (
     <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
@@ -130,6 +133,20 @@ export function HeroSection({ section }: HeroSectionProps) {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="mt-8">
+              {heroImageSrc ? (
+                <Image
+                  src={heroImageSrc}
+                  alt={section.heading}
+                  width={1200}
+                  height={900}
+                  className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
+                />
+              ) : (
+                <ImageSlotPlaceholder label="Hero image" aspect="16:9" />
+              )}
             </div>
 
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-zinc-800/20 rounded-lg -z-10" />

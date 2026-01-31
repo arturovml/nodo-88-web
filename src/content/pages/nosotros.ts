@@ -8,6 +8,7 @@ export const nosotrosPageContent = {
     {
       id: "hero",
       heading: "Nosotros",
+      aboutImageSrc: "/images/about.jpg",
       body:
         "Somos un partner tecnológico enfocado en riesgo crediticio, financiamiento de dispositivos y cobranza estructurada.",
     },
@@ -25,6 +26,7 @@ export const nosotrosPageContent = {
       id: "process",
       heading: "Implementación responsable y estructurada",
       subheading: "Proceso",
+      processImageSrc: "/images/process.jpg",
       body:
         "Metodología probada que minimiza riesgo operativo y asegura adopción efectiva por parte de los equipos.",
       items: [

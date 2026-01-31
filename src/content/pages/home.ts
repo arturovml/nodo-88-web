@@ -9,6 +9,7 @@ export const homePageContent = {
       id: "hero",
       heading: "Tecnología estratégica para reducir riesgo",
       subheading: "Partner tecnológico",
+      heroImageSrc: "/images/hero.jpg",
       body:
         "Implementamos soluciones tecnológicas para riesgo crediticio, financiamiento de dispositivos y cobranza. Orientado a fintechs, bancos y retail que necesitan control operativo y decisiones basadas en datos.",
       items: [
@@ -52,6 +53,7 @@ export const homePageContent = {
       id: "features",
       heading: "Control operativo y decisiones basadas en datos",
       subheading: "Servicios",
+      servicesImageSrc: "/images/services.jpg",
       body:
         "Tecnología diseñada para instituciones que requieren precisión, escalabilidad y cumplimiento normativo.",
       items: [
@@ -89,6 +91,7 @@ export const homePageContent = {
       id: "process",
       heading: "Implementación responsable y estructurada",
       subheading: "Proceso",
+      processImageSrc: "/images/process.jpg",
       body:
         "Metodología probada que minimiza riesgo operativo y asegura adopción efectiva por parte de los equipos.",
       items: [

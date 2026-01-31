@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
 import type { FeatureItem, SectionContent, SectionItem } from "@/content/types";
 
 const iconMap = {
@@ -75,6 +78,7 @@ const isFeature = (item: SectionItem): item is FeatureItem =>
 export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
   const items = section.items ?? [];
   const features = items.filter(isFeature);
+  const servicesImageSrc = section.servicesImageSrc?.trim();
 
   return (
     <section id="servicios" className="py-24 lg:py-32 border-t border-slate-800/60">
@@ -91,6 +95,20 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
           <p className="text-lg text-zinc-400 leading-relaxed">
             {section.body}
           </p>
+        </div>
+
+        <div className="mb-12 max-w-4xl">
+          {servicesImageSrc ? (
+            <Image
+              src={servicesImageSrc}
+              alt={section.heading}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
+            />
+          ) : (
+            <ImageSlotPlaceholder label="Services image" aspect="16:9" />
+          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">

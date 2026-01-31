@@ -15,6 +15,7 @@ export const serviciosPageContent = {
       id: "features",
       heading: "Control operativo y decisiones basadas en datos",
       subheading: "Servicios",
+      servicesImageSrc: "/images/services.jpg",
       body:
         "Tecnología diseñada para instituciones que requieren precisión, escalabilidad y cumplimiento normativo.",
       items: [
@@ -52,6 +53,7 @@ export const serviciosPageContent = {
       id: "process",
       heading: "Implementación responsable y estructurada",
       subheading: "Proceso",
+      processImageSrc: "/images/process.jpg",
       body:
         "Metodología probada que minimiza riesgo operativo y asegura adopción efectiva por parte de los equipos.",
       items: [
