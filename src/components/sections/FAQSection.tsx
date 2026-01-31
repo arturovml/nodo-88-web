@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { Reveal } from "@/components/shared/Reveal";
 import type { FaqItem, SectionContent, SectionItem } from "@/content/types";
 
 type FAQSectionProps = {
@@ -37,9 +38,10 @@ export function FAQSection({ section }: FAQSectionProps) {
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
+              <Reveal
                 key={item.question}
-                className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden"
+                delay={i * 40}
+                className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden transition duration-300 ease-out hover:border-zinc-700 hover:shadow-[0_10px_24px_rgba(0,0,0,0.25)]"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -58,7 +60,7 @@ export function FAQSection({ section }: FAQSectionProps) {
                     </p>
                   </div>
                 )}
-              </div>
+              </Reveal>
             );
           })}
         </div>

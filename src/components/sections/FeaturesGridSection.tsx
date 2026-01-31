@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
+import { Reveal } from "@/components/shared/Reveal";
 import type { FeatureItem, SectionContent, SectionItem } from "@/content/types";
 
 const iconMap = {
@@ -83,7 +84,7 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
   return (
     <section id="servicios" className="py-24 lg:py-32 border-t border-slate-800/60">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-16">
+        <Reveal className="max-w-2xl mb-16">
           {section.subheading ? (
             <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
               {section.subheading}
@@ -95,9 +96,9 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
           <p className="text-lg text-zinc-400 leading-relaxed">
             {section.body}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mb-12 max-w-4xl">
+        <Reveal className="mb-12 max-w-4xl" delay={80}>
           {servicesImageSrc ? (
             <Image
               src={servicesImageSrc}
@@ -109,15 +110,16 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
           ) : (
             <ImageSlotPlaceholder label="Services image" aspect="16:9" />
           )}
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {features.map((feature) => (
-            <div
+          {features.map((feature, index) => (
+            <Reveal
               key={feature.title}
-              className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 hover:border-zinc-700 transition-colors"
+              delay={index * 60}
+              className="group bg-zinc-900 border border-zinc-800 rounded-lg p-8 transition duration-300 ease-out hover:border-zinc-700 hover:shadow-[0_10px_24px_rgba(0,0,0,0.25)]"
             >
-              <div className="w-12 h-12 bg-slate-900/70 border border-slate-800/70 rounded-lg flex items-center justify-center mb-6 text-slate-200">
+              <div className="w-12 h-12 bg-slate-900/70 border border-slate-800/70 rounded-lg flex items-center justify-center mb-6 text-slate-200 transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
                 {iconMap[feature.icon]}
               </div>
               <h3 className="text-xl text-zinc-100 leading-snug mb-4">
@@ -126,7 +128,7 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
               <p className="text-zinc-400 leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
+import { Reveal } from "@/components/shared/Reveal";
 import type { ProcessStep, SectionContent, SectionItem } from "@/content/types";
 
 type ProcessStepsSectionProps = {
@@ -21,7 +22,7 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
       className="py-24 lg:py-32 bg-zinc-900/50 border-y border-slate-800/60"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-16">
+        <Reveal className="max-w-2xl mb-16">
           {section.subheading ? (
             <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
               {section.subheading}
@@ -33,9 +34,9 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
           <p className="text-lg text-zinc-400 leading-relaxed">
             {section.body}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mb-12 max-w-5xl">
+        <Reveal className="mb-12 max-w-5xl" delay={80}>
           {processImageSrc ? (
             <Image
               src={processImageSrc}
@@ -47,7 +48,7 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
           ) : (
             <ImageSlotPlaceholder label="Process image" aspect="16:9" />
           )}
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {steps.map((step, i) => (
@@ -56,8 +57,11 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
                 <div className="hidden lg:block absolute top-12 left-full w-full h-px bg-slate-800/70 -z-10" />
               )}
 
-              <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-                <div className="text-5xl mb-6 text-slate-500/80">
+              <Reveal
+                delay={i * 60}
+                className="group bg-zinc-950 border border-zinc-800 rounded-lg p-6 transition duration-300 ease-out hover:border-zinc-700 hover:shadow-[0_10px_24px_rgba(0,0,0,0.25)]"
+              >
+                <div className="text-5xl mb-6 text-slate-500/80 transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
                   {step.number}
                 </div>
                 <h3 className="text-lg text-zinc-100 leading-snug mb-3">
@@ -66,7 +70,7 @@ export function ProcessStepsSection({ section }: ProcessStepsSectionProps) {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   {step.description}
                 </p>
-              </div>
+              </Reveal>
             </div>
           ))}
         </div>

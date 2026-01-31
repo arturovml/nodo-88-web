@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
+import { Reveal } from "@/components/shared/Reveal";
 import type {
   CtaItem,
   HeroChart,
@@ -38,7 +39,7 @@ export function HeroSection({ section }: HeroSectionProps) {
     <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="max-w-xl">
+          <Reveal className="max-w-xl">
             {section.subheading ? (
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full mb-8">
                 <div className="w-1.5 h-1.5 bg-slate-400 rounded-full" />
@@ -74,7 +75,7 @@ export function HeroSection({ section }: HeroSectionProps) {
                 </Link>
               ) : null}
             </div>
-          </div>
+          </Reveal>
 
           <div className="relative">
             <div className="bg-zinc-900 border border-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] rounded-lg p-8 lg:p-12">

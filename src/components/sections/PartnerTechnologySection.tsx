@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { ImageSlotPlaceholder } from "@/components/shared/ImageSlotPlaceholder";
+import { Reveal } from "@/components/shared/Reveal";
 import type { SectionContent } from "@/content/types";
 
 type PartnerTechnologySectionProps = {
@@ -17,7 +18,7 @@ export function PartnerTechnologySection({
   return (
     <section className="py-16 lg:py-20 border-b border-slate-800/50">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+        <Reveal className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div className="max-w-2xl">
             {section.subheading ? (
               <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
@@ -49,7 +50,7 @@ export function PartnerTechnologySection({
               </div>
             ) : null}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
