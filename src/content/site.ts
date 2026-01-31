@@ -39,6 +39,7 @@ export const siteContent = {
     company: ["Nosotros", "Casos de uso", "Documentación", "Contacto"],
     legal: ["Legal", "Privacidad", "Términos"],
     social: ["LinkedIn", "Twitter", "GitHub"],
-    copyright: "© 2026 Nodo 88. Todos los derechos reservados.",
+    copyright:
+      "© 2026 Nodo 88. Todos los derechos reservados. Nodo 88 no es institución financiera ni otorga crédito. Proveemos tecnología para control y gestión de riesgo en esquemas de financiamiento.",
   },
 } as const satisfies SiteContent;

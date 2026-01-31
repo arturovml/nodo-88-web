@@ -7,8 +7,8 @@ export const homePageContent = {
   sections: [
     {
       id: "hero",
-      heading: "Tecnología estratégica para reducir riesgo",
-      subheading: "Partner tecnológico",
+      heading: "Control y gestión de dispositivos financiados",
+      subheading: "Riesgo, operación e implementación real",
       heroImageSrc: "/images/hero.jpg",
       body:
         "Implementamos soluciones tecnológicas para riesgo crediticio, financiamiento de dispositivos y cobranza. Orientado a fintechs, bancos y retail que necesitan control operativo y decisiones basadas en datos.",
@@ -38,6 +38,22 @@ export const homePageContent = {
         "Arquitectura segura y escalable para instituciones reguladas y operaciones multi-país.",
         "Implementación guiada con foco en adopción y resultados medibles.",
       ],
+    },
+    {
+      id: "partner",
+      heading: "Tecnología que utilizamos",
+      subheading: "Partner tecnológico",
+      body:
+        "Nodo 88 implementa y opera la tecnología de Datacultr para el control y gestión de dispositivos financiados. No somos Datacultr ni otorgamos crédito; actuamos como partner de implementación y operación.",
+      logoImageSrc: "/images/datacultr.png",
+      logoAlt: "Datacultr",
+    },
+    {
+      id: "devices",
+      heading: "Dispositivos compatibles",
+      body:
+        "Control remoto, bloqueo y gestión de dispositivos en esquemas de financiamiento, con operación y trazabilidad claras.",
+      bullets: ["Teléfonos móviles", "Tablets", "Computadoras", "Televisores"],
     },
     {
       id: "stats",

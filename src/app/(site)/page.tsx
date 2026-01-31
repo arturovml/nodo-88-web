@@ -1,7 +1,9 @@
 import { CTABlockSection } from "@/components/sections/CTABlockSection";
+import { CompatibleDevicesSection } from "@/components/sections/CompatibleDevicesSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FeaturesGridSection } from "@/components/sections/FeaturesGridSection";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { PartnerTechnologySection } from "@/components/sections/PartnerTechnologySection";
 import { ProcessStepsSection } from "@/components/sections/ProcessStepsSection";
 import { StatsStripSection } from "@/components/sections/StatsStripSection";
 import { WhyNodoSection } from "@/components/sections/WhyNodoSection";
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const hero = getSectionById(homePageContent, "hero");
   const why = getSectionById(homePageContent, "why");
+  const partner = getSectionById(homePageContent, "partner");
+  const devices = getSectionById(homePageContent, "devices");
   const stats = getSectionById(homePageContent, "stats");
   const features = getSectionById(homePageContent, "features");
   const process = getSectionById(homePageContent, "process");
@@ -27,8 +31,10 @@ export default function HomePage() {
     <>
       <HeroSection section={hero} />
       <StatsStripSection section={stats} />
-      <WhyNodoSection section={why} />
+      <PartnerTechnologySection section={partner} />
+      <CompatibleDevicesSection section={devices} />
       <FeaturesGridSection section={features} />
+      <WhyNodoSection section={why} />
       <ProcessStepsSection section={process} />
       <CTABlockSection section={cta} />
       <FAQSection section={faq} />

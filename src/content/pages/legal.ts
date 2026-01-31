@@ -29,6 +29,8 @@ export const legalPageContent = {
         "El contenido de este sitio es informativo y puede cambiar sin previo aviso. El uso del sitio implica aceptar estas condiciones generales y un uso responsable de la información publicada.",
       bullets: [
         "La información no constituye asesoría legal o financiera.",
+        "Nodo 88 no es institución financiera ni otorga crédito.",
+        "Proveemos tecnología para control y gestión de riesgo en esquemas de financiamiento.",
         "Puedes enlazar este sitio citando la fuente.",
         "Reservamos el derecho de actualizar estos términos.",
       ],
