@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Logo } from "@/components/site/Logo";
@@ -8,7 +8,6 @@ import { siteContent } from "@/content/site";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) {
@@ -24,7 +23,6 @@ export function SiteHeader() {
 
     document.body.style.overflow = "hidden";
     document.addEventListener("keydown", handleKeyDown);
-    panelRef.current?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -110,8 +108,6 @@ export function SiteHeader() {
           className={`fixed right-0 top-0 z-[60] h-full w-80 max-w-[85vw] bg-zinc-950 border-l border-zinc-800/50 p-6 transition-transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
-          ref={panelRef}
-          tabIndex={-1}
         >
           <div className="flex items-center justify-between mb-8">
             <span className="text-sm text-zinc-400">Menú</span>
