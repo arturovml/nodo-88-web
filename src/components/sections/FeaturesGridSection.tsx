@@ -77,15 +77,15 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
   const features = items.filter(isFeature);
 
   return (
-    <section id="servicios" className="py-24 lg:py-32">
+    <section id="servicios" className="py-24 lg:py-32 border-t border-slate-800/60">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="max-w-2xl mb-16">
           {section.subheading ? (
-            <div className="text-xs text-zinc-500 tracking-wider uppercase mb-4">
+            <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
               {section.subheading}
             </div>
           ) : null}
-          <h2 className="text-4xl lg:text-5xl tracking-tight mb-6">
+          <h2 className="text-4xl lg:text-5xl text-zinc-100 tracking-tight leading-tight mb-6">
             {section.heading}
           </h2>
           <p className="text-lg text-zinc-400 leading-relaxed">
@@ -99,10 +99,12 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
               key={feature.title}
               className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 hover:border-zinc-700 transition-colors"
             >
-              <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mb-6 text-zinc-300">
+              <div className="w-12 h-12 bg-slate-900/70 border border-slate-800/70 rounded-lg flex items-center justify-center mb-6 text-slate-200">
                 {iconMap[feature.icon]}
               </div>
-              <h3 className="text-xl mb-4">{feature.title}</h3>
+              <h3 className="text-xl text-zinc-100 leading-snug mb-4">
+                {feature.title}
+              </h3>
               <p className="text-zinc-400 leading-relaxed">
                 {feature.description}
               </p>

@@ -38,14 +38,14 @@ export function HeroSection({ section }: HeroSectionProps) {
           <div className="max-w-xl">
             {section.subheading ? (
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full mb-8">
-                <div className="w-1.5 h-1.5 bg-zinc-100 rounded-full" />
-                <span className="text-xs text-zinc-400 tracking-wide uppercase">
+                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full" />
+                <span className="text-xs text-slate-400 tracking-wide uppercase">
                   {section.subheading}
                 </span>
               </div>
             ) : null}
 
-            <h1 className="text-5xl lg:text-6xl tracking-tight mb-6">
+            <h1 className="text-5xl lg:text-6xl tracking-tight leading-tight mb-6">
               {section.heading}
             </h1>
 
@@ -74,33 +74,33 @@ export function HeroSection({ section }: HeroSectionProps) {
           </div>
 
           <div className="relative">
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 lg:p-12">
+            <div className="bg-zinc-900 border border-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] rounded-lg p-8 lg:p-12">
               <div className="space-y-6">
                 <div className="grid grid-cols-3 gap-4">
                   {metrics.map((metric) => (
                     <div
                       key={metric.label}
-                      className="bg-zinc-950 border border-zinc-800 rounded p-4"
+                      className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-4"
                     >
-                      <div className="text-xs text-zinc-500 mb-2">
+                      <div className="text-[11px] uppercase tracking-widest text-zinc-500 mb-2">
                         {metric.label}
                       </div>
-                      <div className="text-2xl">{metric.value}</div>
+                      <div className="text-2xl text-zinc-100">{metric.value}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded p-6">
+                <div className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-6">
                   <div className="flex items-end justify-between h-32 gap-2">
                     {(chart?.bars ?? []).map((height, i) => (
                       <div
                         key={`${height}-${i}`}
-                        className="flex-1 bg-zinc-700 rounded-sm"
+                        className="flex-1 bg-transparent border border-emerald-400/60 shadow-[0_0_10px_rgba(16,185,129,0.12)] rounded-sm"
                         style={{ height: `${height}%` }}
                       />
                     ))}
                   </div>
-                  <div className="text-xs text-zinc-500 mt-4">
+                  <div className="text-[11px] uppercase tracking-widest text-zinc-500 mt-4">
                     {chart?.label}
                   </div>
                 </div>
@@ -109,21 +109,21 @@ export function HeroSection({ section }: HeroSectionProps) {
                   {statuses.map((item) => (
                     <div
                       key={item.label}
-                      className="bg-zinc-950 border border-zinc-800 rounded p-4"
+                      className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-4"
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <div
                           className={`w-2 h-2 rounded-full ${
                             item.tone === "success"
-                              ? "bg-emerald-500"
+                              ? "bg-emerald-400 shadow-[0_0_6px_rgba(16,185,129,0.6)]"
                               : "bg-zinc-500"
                           }`}
                         />
-                        <span className="text-xs text-zinc-500">
+                        <span className="text-[11px] uppercase tracking-widest text-zinc-500">
                           {item.label}
                         </span>
                       </div>
-                      <div className="text-sm">{item.value}</div>
+                      <div className="text-sm text-zinc-100">{item.value}</div>
                     </div>
                   ))}
                 </div>

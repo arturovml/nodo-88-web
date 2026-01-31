@@ -17,15 +17,15 @@ export function FAQSection({ section }: FAQSectionProps) {
   const faqs = items.filter(isFaq);
 
   return (
-    <section className="py-24 lg:py-32 border-t border-zinc-800/50">
+    <section className="py-24 lg:py-32 border-t border-slate-800/60">
       <div className="max-w-[900px] mx-auto px-6 lg:px-12">
         <div className="mb-16">
           {section.subheading ? (
-            <div className="text-xs text-zinc-500 tracking-wider uppercase mb-4">
+            <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
               {section.subheading}
             </div>
           ) : null}
-          <h2 className="text-4xl lg:text-5xl tracking-tight mb-6">
+          <h2 className="text-4xl lg:text-5xl text-zinc-100 tracking-tight leading-tight mb-6">
             {section.heading}
           </h2>
           <p className="text-lg text-zinc-400 leading-relaxed">
@@ -46,7 +46,7 @@ export function FAQSection({ section }: FAQSectionProps) {
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-zinc-900/50 transition-colors"
                 >
                   <span className="text-lg pr-8">{item.question}</span>
-                  <span className="text-zinc-400 flex-shrink-0 text-lg">
+                  <span className="text-slate-400 flex-shrink-0 text-lg">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>

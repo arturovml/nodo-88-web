@@ -20,7 +20,7 @@ export function CTABlockSection({ section }: CTABlockSectionProps) {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 lg:p-16">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl tracking-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl text-zinc-100 tracking-tight leading-tight mb-6">
               {section.heading}
             </h2>
             <p className="text-lg text-zinc-400 leading-relaxed mb-10">

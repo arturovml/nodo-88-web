@@ -14,12 +14,14 @@ export function ContactCardsSection({ section }: ContactCardsSectionProps) {
   const cards = items.filter(isContactCard);
 
   return (
-    <section className="py-20">
+    <section className="py-24 lg:py-28">
       <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
         {(section.heading || section.body) ? (
-          <div className="max-w-2xl mb-10">
+          <div className="max-w-2xl mb-12 space-y-3">
             {section.heading ? (
-              <h2 className="text-2xl mb-3">{section.heading}</h2>
+              <h2 className="text-2xl text-zinc-100 leading-tight">
+                {section.heading}
+              </h2>
             ) : null}
             {section.body ? (
               <p className="text-zinc-400 leading-relaxed">{section.body}</p>
@@ -32,7 +34,9 @@ export function ContactCardsSection({ section }: ContactCardsSectionProps) {
               key={card.title}
               className="bg-zinc-900 border border-zinc-800 rounded-lg p-8"
             >
-              <h3 className="text-2xl mb-4">{card.title}</h3>
+              <h3 className="text-2xl text-zinc-100 leading-tight mb-4">
+                {card.title}
+              </h3>
               <p className="text-zinc-400 leading-relaxed mb-6">
                 {card.description}
               </p>

@@ -91,10 +91,12 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
   };
 
   return (
-    <section className="py-20">
+    <section className="py-24 lg:py-28">
       <div className="max-w-[900px] mx-auto px-6 lg:px-12">
-        <div className="mb-10">
-          <h2 className="text-3xl mb-4">{section.heading}</h2>
+        <div className="mb-12 space-y-3">
+          <h2 className="text-3xl text-zinc-100 leading-tight">
+            {section.heading}
+          </h2>
           {section.body ? (
             <p className="text-zinc-400 leading-relaxed">{section.body}</p>
           ) : null}
