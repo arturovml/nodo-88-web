@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const metadataBase =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nodo88.com.mx";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBase),
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   description:
     "Nodo 88 implementa soluciones tecnológicas para control de dispositivos financiados, reducción de riesgo operativo y optimización de modelos de cobranza.",
   openGraph: {
+    title: "Nodo 88 | Soluciones tecnológicas para control y riesgo operativo",
+    description:
+      "Nodo 88 implementa soluciones tecnológicas para control de dispositivos financiados, reducción de riesgo operativo y optimización de modelos de cobranza.",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Nodo 88 | Soluciones tecnológicas para control y riesgo operativo",
     description:
       "Nodo 88 implementa soluciones tecnológicas para control de dispositivos financiados, reducción de riesgo operativo y optimización de modelos de cobranza.",
