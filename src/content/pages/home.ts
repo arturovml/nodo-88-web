@@ -27,6 +27,18 @@ export const homePageContent = {
       ],
     },
     {
+      id: "why",
+      heading: "¿Por qué Nodo 88?",
+      body:
+        "Acompañamos a equipos de riesgo y operación con tecnología estable, medible y alineada a procesos críticos.",
+      bullets: [
+        "Visión end-to-end: originación, monitoreo y recuperación en una sola capa tecnológica.",
+        "Control operativo con trazabilidad, alertas y tableros diseñados para equipos de riesgo.",
+        "Arquitectura segura y escalable para instituciones reguladas y operaciones multi-país.",
+        "Implementación guiada con foco en adopción y resultados medibles.",
+      ],
+    },
+    {
       id: "stats",
       heading: "Indicadores",
       items: [

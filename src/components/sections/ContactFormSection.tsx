@@ -39,6 +39,9 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
+  const microcopy = section.microcopy ?? [];
+  const nextSteps = section.nextSteps ?? [];
+  const nextStepsHeading = section.nextStepsHeading;
 
   const items = useMemo(() => section.items ?? [], [section.items]);
   const fields = items.filter(isField);
@@ -217,6 +220,43 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
             </div>
           ) : null}
         </form>
+
+        {(microcopy.length > 0 || nextSteps.length > 0) ? (
+          <div className="mt-10 border-t border-zinc-800/60 pt-8 space-y-6">
+            {microcopy.length > 0 ? (
+              <div className="space-y-2 text-sm text-zinc-400">
+                {microcopy.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+            ) : null}
+
+            {nextSteps.length > 0 ? (
+              <div className="space-y-4">
+                {nextStepsHeading ? (
+                  <div className="text-xs text-slate-400 tracking-wider uppercase">
+                    {nextStepsHeading}
+                  </div>
+                ) : null}
+                <div className="grid gap-3 md:grid-cols-3">
+                  {nextSteps.map((step, index) => (
+                    <div
+                      key={step}
+                      className="rounded-lg border border-zinc-800/70 bg-zinc-950/60 px-4 py-3"
+                    >
+                      <div className="text-[11px] uppercase tracking-widest text-slate-400 mb-2">
+                        Paso {index + 1}
+                      </div>
+                      <div className="text-sm text-zinc-200 leading-relaxed">
+                        {step}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </section>
   );

@@ -80,12 +80,14 @@ export function HeroSection({ section }: HeroSectionProps) {
                   {metrics.map((metric) => (
                     <div
                       key={metric.label}
-                      className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-4"
+                      className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-4 min-w-0"
                     >
-                      <div className="text-[11px] uppercase tracking-widest text-zinc-500 mb-2">
+                      <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-zinc-500 mb-2 break-words">
                         {metric.label}
                       </div>
-                      <div className="text-2xl text-zinc-100">{metric.value}</div>
+                      <div className="text-xl sm:text-2xl text-zinc-100">
+                        {metric.value}
+                      </div>
                     </div>
                   ))}
                 </div>

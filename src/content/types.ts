@@ -145,6 +145,9 @@ export type SectionContent = {
   subheading?: string;
   body?: string;
   bullets?: string[];
+  microcopy?: string[];
+  nextStepsHeading?: string;
+  nextSteps?: string[];
   items?: SectionItem[];
 };
 

@@ -16,6 +16,16 @@ export const contactoPageContent = {
       heading: "Hablemos de tu operación",
       body:
         "Completa el formulario y te responderemos con una propuesta alineada a tu necesidad.",
+      microcopy: [
+        "Tiempo de respuesta: 24 a 48 horas hábiles.",
+        "Para cotizar más rápido, comparte volumen de cartera, países de operación y objetivos.",
+      ],
+      nextStepsHeading: "Qué sigue después",
+      nextSteps: [
+        "Revisamos el contexto y confirmamos el alcance.",
+        "Agendamos una sesión técnica con tu equipo.",
+        "Entregamos una propuesta con roadmap y costos.",
+      ],
       items: [
         {
           kind: "formField",

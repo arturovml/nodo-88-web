@@ -4,6 +4,7 @@ import { FeaturesGridSection } from "@/components/sections/FeaturesGridSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProcessStepsSection } from "@/components/sections/ProcessStepsSection";
 import { StatsStripSection } from "@/components/sections/StatsStripSection";
+import { WhyNodoSection } from "@/components/sections/WhyNodoSection";
 import { getSectionById, homePageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const hero = getSectionById(homePageContent, "hero");
+  const why = getSectionById(homePageContent, "why");
   const stats = getSectionById(homePageContent, "stats");
   const features = getSectionById(homePageContent, "features");
   const process = getSectionById(homePageContent, "process");
@@ -25,6 +27,7 @@ export default function HomePage() {
     <>
       <HeroSection section={hero} />
       <StatsStripSection section={stats} />
+      <WhyNodoSection section={why} />
       <FeaturesGridSection section={features} />
       <ProcessStepsSection section={process} />
       <CTABlockSection section={cta} />
