@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Logo } from "@/components/site/Logo";
 import { siteContent } from "@/content/site";
 
 const footerLinks = {
@@ -33,7 +34,7 @@ export function SiteFooter() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 bg-gradient-to-br from-zinc-100 to-zinc-400 rounded-sm" />
+              <Logo variant="mark" className="w-9 h-9" />
               <span className="text-xl tracking-tight">{siteContent.siteName}</span>
             </div>
             <p className="text-sm text-zinc-400 leading-relaxed">

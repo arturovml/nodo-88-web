@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Logo } from "@/components/site/Logo";
 import { siteContent } from "@/content/site";
 
 export function SiteHeader() {
@@ -8,7 +9,7 @@ export function SiteHeader() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-zinc-100 to-zinc-400 rounded-sm" />
+            <Logo variant="mark" className="w-9 h-9" />
             <span className="text-xl tracking-tight">{siteContent.siteName}</span>
           </Link>
 
