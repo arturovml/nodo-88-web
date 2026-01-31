@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const metadataBase =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nodo-88-web.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nodo88.com.mx";
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBase),

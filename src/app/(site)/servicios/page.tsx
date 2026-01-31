@@ -6,8 +6,9 @@ import { getSectionById, serviciosPageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: serviciosPageContent.title,
-  description: serviciosPageContent.description,
+  title: `${serviciosPageContent.title} | Nodo 88`,
+  description:
+    "Soluciones para control de dispositivos financiados, señales tempranas de riesgo e implementación tecnológica para modelos de cobranza y financiamiento.",
 };
 
 export default function ServicesPage() {

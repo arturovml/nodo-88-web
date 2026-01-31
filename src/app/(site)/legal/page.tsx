@@ -3,8 +3,9 @@ import { getSectionById, legalPageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: legalPageContent.title,
-  description: legalPageContent.description,
+  title: `${legalPageContent.title} | Nodo 88`,
+  description:
+    "Información legal y aclaraciones de alcance: Nodo 88 no otorga créditos ni presta servicios financieros.",
 };
 
 export default function LegalPage() {

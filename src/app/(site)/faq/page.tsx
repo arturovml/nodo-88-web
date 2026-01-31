@@ -5,8 +5,9 @@ import { faqPageContent, getSectionById } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: faqPageContent.title,
-  description: faqPageContent.description,
+  title: `${faqPageContent.title} | Nodo 88`,
+  description:
+    "Resolvemos las preguntas más comunes sobre nuestras soluciones tecnológicas, implementación, integración y alcances del servicio.",
 };
 
 export default function FAQPage() {

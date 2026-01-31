@@ -6,8 +6,9 @@ import { getSectionById, nosotrosPageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: nosotrosPageContent.title,
-  description: nosotrosPageContent.description,
+  title: `${nosotrosPageContent.title} | Nodo 88`,
+  description:
+    "Conoce a Nodo 88: enfoque en ejecución, claridad y tecnología aplicada para mejorar control operativo y resultados medibles.",
 };
 
 export default function AboutPage() {

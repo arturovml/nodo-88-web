@@ -8,8 +8,9 @@ import { getSectionById, homePageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: homePageContent.title,
-  description: homePageContent.description,
+  title: `${homePageContent.title} | Nodo 88`,
+  description:
+    "Nodo 88 implementa soluciones tecnológicas para control de dispositivos financiados, reducción de riesgo operativo y optimización de cobranza.",
 };
 
 export default function HomePage() {
