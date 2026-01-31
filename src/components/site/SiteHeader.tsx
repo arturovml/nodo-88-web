@@ -9,11 +9,9 @@ import { siteContent } from "@/content/site";
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) {
-      buttonRef.current?.focus();
       return;
     }
 
@@ -78,7 +76,6 @@ export function SiteHeader() {
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsOpen((prev) => !prev)}
-              ref={buttonRef}
             >
               <svg
                 width="24"
