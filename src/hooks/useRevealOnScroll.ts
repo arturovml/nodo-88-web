@@ -3,10 +3,17 @@ import { useEffect, useRef } from "react";
 type RevealOptions = {
   threshold?: number;
   rootMargin?: string;
+  mobileThreshold?: number;
+  mobileRootMargin?: string;
 };
 
 export function useRevealOnScroll(options: RevealOptions = {}) {
-  const { threshold = 0.2, rootMargin = "0px" } = options;
+  const {
+    threshold = 0.2,
+    rootMargin = "0px",
+    mobileThreshold = 0.1,
+    mobileRootMargin = "0px 0px -10% 0px",
+  } = options;
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -19,6 +26,10 @@ export function useRevealOnScroll(options: RevealOptions = {}) {
       return;
     }
 
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const resolvedThreshold = isMobile ? mobileThreshold : threshold;
+    const resolvedRootMargin = isMobile ? mobileRootMargin : rootMargin;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,7 +39,7 @@ export function useRevealOnScroll(options: RevealOptions = {}) {
           observer.unobserve(target);
         });
       },
-      { threshold, rootMargin },
+      { threshold: resolvedThreshold, rootMargin: resolvedRootMargin },
     );
 
     observer.observe(node);
