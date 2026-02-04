@@ -40,15 +40,6 @@ export const homePageContent = {
       ],
     },
     {
-      id: "partner",
-      heading: "Tecnología que utilizamos",
-      subheading: "Partner tecnológico",
-      body:
-        "Nodo 88 implementa y opera la tecnología de Datacultr para el control y gestión de dispositivos financiados. No somos Datacultr ni otorgamos crédito; actuamos como partner de implementación y operación.",
-      logoImageSrc: "/images/datacultr.png",
-      logoAlt: "Datacultr",
-    },
-    {
       id: "devices",
       heading: "Dispositivos compatibles",
       body:

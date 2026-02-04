@@ -153,8 +153,6 @@ export type SectionContent = {
   servicesImageSrc?: string;
   processImageSrc?: string;
   aboutImageSrc?: string;
-  logoImageSrc?: string;
-  logoAlt?: string;
 };
 
 export type PageContent = {
