@@ -119,7 +119,7 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
               delay={index * 60}
               className="group bg-zinc-900 border border-zinc-800 rounded-lg p-8 transition duration-300 ease-out hover:border-zinc-700 hover:shadow-[0_10px_24px_rgba(0,0,0,0.25)]"
             >
-              <div className="w-12 h-12 bg-slate-900/70 border border-slate-800/70 rounded-lg flex items-center justify-center mb-6 text-slate-200 transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
+              <div className="w-12 h-12 bg-gradient-to-br from-violet-600 to-indigo-600 border border-violet-500/60 rounded-lg flex items-center justify-center mb-6 text-white transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
                 {iconMap[feature.icon]}
               </div>
               <h3 className="text-xl text-zinc-100 leading-snug mb-4">

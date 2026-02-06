@@ -8,7 +8,7 @@ import { siteContent } from "@/content/site";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const brandCtaLabels = new Set(["Agendar demo", "Reserva una demo", "Cotiza aquí"]);
   const gradientCtaClasses =
     "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
   const primaryNeutralClasses =

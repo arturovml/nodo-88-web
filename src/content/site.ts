@@ -16,7 +16,7 @@ export const siteContent = {
     { label: "Contacto", href: "/contacto" },
   ],
   ctas: {
-    primary: { label: "Reserva una demo", href: "/contacto" },
+    primary: { label: "Agendar demo", href: "/contacto" },
     secondary: { label: "Cotiza aquí", href: "/contacto" },
   },
   contact: {

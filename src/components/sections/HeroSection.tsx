@@ -34,7 +34,7 @@ export function HeroSection({ section }: HeroSectionProps) {
   const primaryCta = ctas.find((cta) => cta.variant === "primary") ?? ctas[0];
   const secondaryCta = ctas.find((cta) => cta.variant === "secondary") ?? ctas[1];
   const heroImageSrc = section.heroImageSrc?.trim();
-  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const brandCtaLabels = new Set(["Agendar demo", "Reserva una demo", "Cotiza aquí"]);
   const gradientCtaClasses =
     "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
   const primaryNeutralClasses =
