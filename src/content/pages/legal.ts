@@ -15,34 +15,25 @@ export const legalPageContent = {
       id: "privacidad",
       heading: "Aviso de privacidad",
       body:
-        "Este aviso describe, de manera general, cómo podemos recopilar y usar información cuando interactúas con nuestro sitio. Solo solicitamos datos necesarios para responder a tu solicitud y mejorar la experiencia. Si compartes información personal, la tratamos con cuidado y con acceso limitado dentro del equipo.",
+        "Este aviso describe, de manera general, cómo tratamos la información cuando interactúas con nuestro sitio. Recopilamos únicamente los datos necesarios para responder solicitudes, coordinar reuniones y entregar propuestas. Implementamos medidas razonables de seguridad y control de acceso para proteger la información que compartes.",
       bullets: [
-        "Usamos los datos para responder consultas y preparar propuestas.",
-        "No vendemos datos personales a terceros.",
-        "Puedes solicitar actualización o eliminación de tus datos.",
+        "Usamos los datos para responder consultas, coordinar contacto y mejorar la experiencia del sitio.",
+        "No vendemos ni comercializamos datos personales.",
+        "Podemos compartir información con proveedores que apoyan la operación bajo obligaciones de confidencialidad.",
+        "Puedes solicitar acceso, actualización o eliminación de tus datos escribiendo a nuestro contacto.",
       ],
     },
     {
       id: "terminos",
       heading: "Términos de uso",
       body:
-        "El contenido de este sitio es informativo y puede cambiar sin previo aviso. El uso del sitio implica aceptar estas condiciones generales y un uso responsable de la información publicada.",
+        "El contenido de este sitio es informativo y puede cambiar sin previo aviso. Al utilizarlo, aceptas estas condiciones generales y te comprometes a un uso responsable de la información publicada.",
       bullets: [
-        "La información no constituye asesoría legal o financiera.",
+        "La información no constituye asesoría legal, financiera ni comercial.",
         "Nodo 88 no es institución financiera ni otorga crédito.",
         "Proveemos tecnología para control y gestión de riesgo en esquemas de financiamiento.",
-        "Puedes enlazar este sitio citando la fuente.",
-        "Reservamos el derecho de actualizar estos términos.",
-      ],
-    },
-    {
-      id: "atribuciones",
-      heading: "Atribuciones",
-      body:
-        "Este sitio utiliza recursos de terceros con licencias abiertas. A continuación, se reconocen sus fuentes.",
-      bullets: [
-        "Componentes de shadcn/ui bajo licencia MIT (https://ui.shadcn.com).",
-        "Fotografías de Unsplash bajo su licencia (https://unsplash.com/license).",
+        "El uso de este sitio no genera relación contractual sin un acuerdo firmado.",
+        "Reservamos el derecho de actualizar estos términos en cualquier momento.",
       ],
     },
   ],

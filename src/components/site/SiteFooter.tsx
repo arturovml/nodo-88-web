@@ -23,7 +23,10 @@ const footerLinks = {
   })),
   social: siteContent.footer.social.map((label) => ({
     label,
-    href: "#",
+    href:
+      label.toLowerCase() === "linkedin"
+        ? "https://www.linkedin.com/company/nodo88/posts/?feedView=all"
+        : "#",
   })),
 } as const;
 
