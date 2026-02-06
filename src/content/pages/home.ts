@@ -8,7 +8,7 @@ export const homePageContent = {
     {
       id: "hero",
       heading: "Control y gestión de dispositivos financiados",
-      subheading: "CONTROL TECNOLÓGICO PARA CRÉDITO Y COBRANZA",
+      subheading: "CONECTANDO LO QUE IMPORTA, CON QUIÉN IMPORTA",
       heroImageSrc: "/images/hero.jpg",
       body:
         "Implementamos soluciones tecnológicas para riesgo crediticio, financiamiento de dispositivos y cobranza. Orientado a fintechs, bancos y retail que necesitan control operativo y decisiones basadas en datos.",

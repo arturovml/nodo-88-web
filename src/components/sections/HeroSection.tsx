@@ -52,12 +52,12 @@ export function HeroSection({ section }: HeroSectionProps) {
   };
 
   return (
-    <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <section className="pt-24 pb-16 sm:pt-28 sm:pb-18 lg:pt-36 lg:pb-28">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <Reveal className="max-w-xl">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <Reveal className="max-w-xl lg:max-w-3xl lg:col-span-8">
             {section.subheading ? (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full mb-5 sm:mb-6">
                 <div className="w-1.5 h-1.5 bg-slate-400 rounded-full" />
                 <span className="text-xs text-slate-400 tracking-wide uppercase">
                   {section.subheading}
@@ -65,11 +65,11 @@ export function HeroSection({ section }: HeroSectionProps) {
               </div>
             ) : null}
 
-            <h1 className="text-5xl lg:text-6xl tracking-tight leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-4 sm:mb-6">
               {section.heading}
             </h1>
 
-            <p className="text-lg text-zinc-400 leading-relaxed mb-10">
+            <p className="text-base sm:text-lg text-zinc-400 leading-relaxed mb-6 sm:mb-8">
               {section.body}
             </p>
 
@@ -93,8 +93,8 @@ export function HeroSection({ section }: HeroSectionProps) {
             </div>
           </Reveal>
 
-          <div className="relative">
-            <div className="bg-zinc-900 border border-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] rounded-lg p-8 lg:p-12">
+          <div className="relative lg:col-span-4 lg:max-w-[460px]">
+            <div className="bg-zinc-900 border border-zinc-800/40 shadow-[0_0_0_1px_rgba(255,255,255,0.015)] rounded-lg p-6 lg:p-6 xl:p-7">
               <div className="space-y-6">
                 <div className="grid grid-cols-3 gap-4">
                   {metrics.map((metric) => (
@@ -102,10 +102,17 @@ export function HeroSection({ section }: HeroSectionProps) {
                       key={metric.label}
                       className="bg-zinc-950/80 border border-zinc-800/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] rounded p-4 min-w-0"
                     >
-                      <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-zinc-500 mb-2 break-words">
+                      <div
+                        className={`text-[7px] sm:text-[8px] uppercase tracking-wide leading-tight text-zinc-400 mb-2 ${
+                          /\s/.test(metric.label)
+                            ? ""
+                            : "truncate max-w-full whitespace-nowrap"
+                        }`}
+                        title={metric.label}
+                      >
                         {metric.label}
                       </div>
-                      <div className="text-xl sm:text-2xl text-zinc-100">
+                      <div className="text-lg sm:text-xl text-zinc-100">
                         {metric.value}
                       </div>
                     </div>
@@ -154,15 +161,17 @@ export function HeroSection({ section }: HeroSectionProps) {
               </div>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-6 lg:mt-5">
               {heroImageSrc ? (
-                <Image
-                  src={heroImageSrc}
-                  alt={section.heading}
-                  width={1200}
-                  height={900}
-                  className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
-                />
+                <div className="aspect-[16/10] max-h-[300px] overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950/80 opacity-95 saturate-90">
+                  <Image
+                    src={heroImageSrc}
+                    alt={section.heading}
+                    width={1200}
+                    height={900}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               ) : (
                 <ImageSlotPlaceholder label="Hero image" aspect="16:9" />
               )}

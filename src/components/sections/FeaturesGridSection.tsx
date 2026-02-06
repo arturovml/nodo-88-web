@@ -84,33 +84,37 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
   return (
     <section id="servicios" className="py-24 lg:py-32 border-t border-slate-800/60">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <Reveal className="max-w-2xl mb-16">
-          {section.subheading ? (
-            <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
-              {section.subheading}
-            </div>
-          ) : null}
-          <h2 className="text-4xl lg:text-5xl text-zinc-100 tracking-tight leading-tight mb-6">
-            {section.heading}
-          </h2>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            {section.body}
-          </p>
-        </Reveal>
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center mb-12">
+          <Reveal className="max-w-2xl">
+            {section.subheading ? (
+              <div className="text-xs text-slate-400 tracking-wider uppercase mb-4">
+                {section.subheading}
+              </div>
+            ) : null}
+            <h2 className="text-4xl lg:text-5xl text-zinc-100 tracking-tight leading-tight mb-6">
+              {section.heading}
+            </h2>
+            <p className="text-lg text-zinc-400 leading-relaxed">
+              {section.body}
+            </p>
+          </Reveal>
 
-        <Reveal className="mb-12 max-w-4xl" delay={80}>
-          {servicesImageSrc ? (
-            <Image
-              src={servicesImageSrc}
-              alt={section.heading}
-              width={1200}
-              height={800}
-              className="w-full h-auto rounded-lg border border-zinc-800 bg-zinc-950/80"
-            />
-          ) : (
-            <ImageSlotPlaceholder label="Services image" aspect="16:9" />
-          )}
-        </Reveal>
+          <Reveal className="w-full" delay={80}>
+            {servicesImageSrc ? (
+              <div className="aspect-[16/10] max-h-[340px] overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950/80">
+                <Image
+                  src={servicesImageSrc}
+                  alt={section.heading}
+                  width={1200}
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <ImageSlotPlaceholder label="Services image" aspect="16:9" />
+            )}
+          </Reveal>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {features.map((feature, index) => (
