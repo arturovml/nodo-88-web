@@ -67,7 +67,7 @@ export function WhyNodoSection({ section }: WhyNodoSectionProps) {
               style={{ transitionDelay: `${index * 80}ms` }}
               className="flex items-start gap-3 border border-zinc-800/70 bg-zinc-950/50 rounded-lg px-4 py-3 opacity-0 translate-y-2 transition duration-500 ease-out data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none"
             >
-              <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border border-emerald-400/50 text-emerald-300">
+              <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border border-violet-500/50 text-violet-300">
                 <svg
                   width="12"
                   height="12"

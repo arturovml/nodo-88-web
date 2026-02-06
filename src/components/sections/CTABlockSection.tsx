@@ -14,6 +14,22 @@ export function CTABlockSection({ section }: CTABlockSectionProps) {
   const ctas = items.filter(isCta);
   const primaryCta = ctas.find((cta) => cta.variant === "primary") ?? ctas[0];
   const secondaryCta = ctas.find((cta) => cta.variant === "secondary") ?? ctas[1];
+  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const gradientCtaClasses =
+    "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
+  const primaryNeutralClasses =
+    "bg-zinc-100 text-zinc-950 hover:bg-zinc-200";
+  const secondaryNeutralClasses =
+    "border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900";
+  const getCtaClassName = (label: string, variant: "primary" | "secondary") => {
+    const base = "px-8 py-4 transition-colors text-center";
+    if (brandCtaLabels.has(label)) {
+      return `${base} ${gradientCtaClasses}`;
+    }
+    return variant === "primary"
+      ? `${base} ${primaryNeutralClasses}`
+      : `${base} ${secondaryNeutralClasses}`;
+  };
 
   return (
     <section className="py-24 lg:py-32">
@@ -30,7 +46,7 @@ export function CTABlockSection({ section }: CTABlockSectionProps) {
               {primaryCta ? (
                 <Link
                   href={primaryCta.href}
-                  className="px-8 py-4 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors text-center"
+                  className={getCtaClassName(primaryCta.label, "primary")}
                 >
                   {primaryCta.label}
                 </Link>
@@ -38,7 +54,7 @@ export function CTABlockSection({ section }: CTABlockSectionProps) {
               {secondaryCta ? (
                 <Link
                   href={secondaryCta.href}
-                  className="px-8 py-4 border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 transition-colors text-center"
+                  className={getCtaClassName(secondaryCta.label, "secondary")}
                 >
                   {secondaryCta.label}
                 </Link>

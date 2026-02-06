@@ -35,7 +35,11 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Logo variant="mark" className="w-9 h-9" />
-              <span className="text-xl tracking-tight">{siteContent.siteName}</span>
+              <img
+                src="/brand/logo-white.svg"
+                alt="Nodo 88"
+                className="h-5 w-auto"
+              />
             </div>
             <p className="text-sm text-zinc-400 leading-relaxed">
               {siteContent.brand.description}

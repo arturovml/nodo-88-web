@@ -34,6 +34,22 @@ export function HeroSection({ section }: HeroSectionProps) {
   const primaryCta = ctas.find((cta) => cta.variant === "primary") ?? ctas[0];
   const secondaryCta = ctas.find((cta) => cta.variant === "secondary") ?? ctas[1];
   const heroImageSrc = section.heroImageSrc?.trim();
+  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const gradientCtaClasses =
+    "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
+  const primaryNeutralClasses =
+    "bg-zinc-100 text-zinc-950 hover:bg-zinc-200";
+  const secondaryNeutralClasses =
+    "border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900";
+  const getCtaClassName = (label: string, variant: "primary" | "secondary") => {
+    const base = "px-8 py-4 transition-colors text-center";
+    if (brandCtaLabels.has(label)) {
+      return `${base} ${gradientCtaClasses}`;
+    }
+    return variant === "primary"
+      ? `${base} ${primaryNeutralClasses}`
+      : `${base} ${secondaryNeutralClasses}`;
+  };
 
   return (
     <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
@@ -61,7 +77,7 @@ export function HeroSection({ section }: HeroSectionProps) {
               {primaryCta ? (
                 <Link
                   href={primaryCta.href}
-                  className="px-8 py-4 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors text-center"
+                  className={getCtaClassName(primaryCta.label, "primary")}
                 >
                   {primaryCta.label}
                 </Link>
@@ -69,7 +85,7 @@ export function HeroSection({ section }: HeroSectionProps) {
               {secondaryCta ? (
                 <Link
                   href={secondaryCta.href}
-                  className="px-8 py-4 border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 transition-colors text-center"
+                  className={getCtaClassName(secondaryCta.label, "secondary")}
                 >
                   {secondaryCta.label}
                 </Link>
@@ -101,7 +117,7 @@ export function HeroSection({ section }: HeroSectionProps) {
                     {(chart?.bars ?? []).map((height, i) => (
                       <div
                         key={`${height}-${i}`}
-                        className="flex-1 bg-transparent border border-emerald-400/60 shadow-[0_0_10px_rgba(16,185,129,0.12)] rounded-sm"
+                        className="flex-1 bg-transparent border border-violet-500/60 shadow-[0_0_10px_rgba(124,58,237,0.12)] rounded-sm"
                         style={{ height: `${height}%` }}
                       />
                     ))}
@@ -123,7 +139,7 @@ export function HeroSection({ section }: HeroSectionProps) {
                         <div
                           className={`w-2 h-2 rounded-full ${
                             item.tone === "success"
-                              ? "bg-emerald-400 shadow-[0_0_6px_rgba(16,185,129,0.6)]"
+                              ? "bg-violet-500 shadow-[0_0_6px_rgba(124,58,237,0.6)]"
                               : "bg-zinc-500"
                           }`}
                         />

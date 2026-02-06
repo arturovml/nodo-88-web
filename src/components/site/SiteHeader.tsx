@@ -8,6 +8,31 @@ import { siteContent } from "@/content/site";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const gradientCtaClasses =
+    "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
+  const primaryNeutralClasses =
+    "bg-zinc-100 text-zinc-950 hover:bg-zinc-200";
+  const secondaryNeutralClasses =
+    "border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900";
+  const secondaryBlackClasses =
+    "border border-white/80 text-zinc-100 hover:border-white hover:bg-zinc-900";
+  const getCtaClassName = (label: string, variant: "primary" | "secondary") => {
+    const base = "px-5 py-2.5 text-sm transition-colors";
+    if (label === "Cotiza aquí") {
+      return `${base} ${secondaryBlackClasses}`;
+    }
+    if (brandCtaLabels.has(label)) {
+      return `${base} ${gradientCtaClasses}`;
+    }
+    return variant === "primary"
+      ? `${base} ${primaryNeutralClasses}`
+      : `${base} ${secondaryNeutralClasses}`;
+  };
+  const getMobileCtaClassName = (
+    label: string,
+    variant: "primary" | "secondary",
+  ) => `${getCtaClassName(label, variant)} text-center`;
 
   useEffect(() => {
     if (!isOpen) {
@@ -35,9 +60,13 @@ export function SiteHeader() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3" aria-label="Nodo 88">
               <Logo variant="mark" className="w-9 h-9" />
-              <span className="text-xl tracking-tight">{siteContent.siteName}</span>
+              <img
+                src="/brand/logo-white.svg"
+                alt="Nodo 88"
+                className="h-5 w-auto"
+              />
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
@@ -55,13 +84,13 @@ export function SiteHeader() {
             <div className="hidden md:flex items-center gap-3">
               <Link
                 href={siteContent.ctas.secondary.href}
-                className="px-5 py-2.5 border border-zinc-700 text-zinc-100 text-sm hover:border-zinc-600 hover:bg-zinc-900 transition-colors"
+                className={getCtaClassName(siteContent.ctas.secondary.label, "secondary")}
               >
                 {siteContent.ctas.secondary.label}
               </Link>
               <Link
                 href={siteContent.ctas.primary.href}
-                className="px-5 py-2.5 bg-zinc-100 text-zinc-950 text-sm hover:bg-zinc-200 transition-colors"
+                className={getCtaClassName(siteContent.ctas.primary.label, "primary")}
               >
                 {siteContent.ctas.primary.label}
               </Link>
@@ -148,14 +177,20 @@ export function SiteHeader() {
           <div className="flex flex-col gap-3">
             <Link
               href={siteContent.ctas.secondary.href}
-              className="px-5 py-2.5 border border-zinc-700 text-zinc-100 text-sm hover:border-zinc-600 hover:bg-zinc-900 transition-colors text-center"
+              className={getMobileCtaClassName(
+                siteContent.ctas.secondary.label,
+                "secondary",
+              )}
               onClick={() => setIsOpen(false)}
             >
               {siteContent.ctas.secondary.label}
             </Link>
             <Link
               href={siteContent.ctas.primary.href}
-              className="px-5 py-2.5 bg-zinc-100 text-zinc-950 text-sm hover:bg-zinc-200 transition-colors text-center"
+              className={getMobileCtaClassName(
+                siteContent.ctas.primary.label,
+                "primary",
+              )}
               onClick={() => setIsOpen(false)}
             >
               {siteContent.ctas.primary.label}

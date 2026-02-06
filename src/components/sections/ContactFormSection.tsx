@@ -111,7 +111,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
               const id = `contact-${field.name}`;
               const error = errors[field.name];
               const commonClasses =
-                "mt-2 w-full rounded-md border border-zinc-800 bg-zinc-950 px-4 py-3 text-zinc-100 placeholder:text-zinc-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950";
+                "mt-2 w-full rounded-md border border-zinc-800 bg-zinc-950 px-4 py-3 text-zinc-100 placeholder:text-zinc-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/30 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950";
 
               if (field.type === "textarea") {
                 return (
@@ -206,7 +206,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
           {submitted ? (
             <div
               role="status"
-              className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-emerald-200"
+              className="rounded-md border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-violet-200"
             >
               <p>Gracias por tu interés. Te contactaremos pronto.</p>
               {mailtoUrl ? (

@@ -12,6 +12,22 @@ const isContactCard = (item: SectionItem): item is ContactCardItem =>
 export function ContactCardsSection({ section }: ContactCardsSectionProps) {
   const items = section.items ?? [];
   const cards = items.filter(isContactCard);
+  const brandCtaLabels = new Set(["Reserva una demo", "Cotiza aquí"]);
+  const gradientCtaClasses =
+    "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500";
+  const primaryNeutralClasses =
+    "bg-zinc-100 text-zinc-950 hover:bg-zinc-200";
+  const secondaryNeutralClasses =
+    "border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900";
+  const getCtaClassName = (label: string, variant: "primary" | "secondary") => {
+    const base = "inline-flex px-6 py-3 transition-colors";
+    if (brandCtaLabels.has(label)) {
+      return `${base} ${gradientCtaClasses}`;
+    }
+    return variant === "primary"
+      ? `${base} ${primaryNeutralClasses}`
+      : `${base} ${secondaryNeutralClasses}`;
+  };
 
   return (
     <section className="py-24 lg:py-28">
@@ -42,11 +58,7 @@ export function ContactCardsSection({ section }: ContactCardsSectionProps) {
               </p>
               <Link
                 href={card.cta.href}
-                className={
-                  card.cta.variant === "primary"
-                    ? "inline-flex px-6 py-3 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors"
-                    : "inline-flex px-6 py-3 border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 transition-colors"
-                }
+                className={getCtaClassName(card.cta.label, card.cta.variant)}
               >
                 {card.cta.label}
               </Link>
