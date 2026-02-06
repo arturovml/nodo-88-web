@@ -24,7 +24,14 @@ export const metadata: Metadata = {
     title: "Nodo 88 | Soluciones tecnológicas para control y riesgo operativo",
     description:
       "Nodo 88 implementa soluciones tecnológicas para control de dispositivos financiados, reducción de riesgo operativo y optimización de modelos de cobranza.",
-    images: ["/og.png"],
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Nodo 88",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -38,7 +45,8 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/apple-touch-icon.png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: ["/favicon.ico"],
   },
 };
 
