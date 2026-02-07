@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
-import { siteContent } from "@/content/site";
 import type { FormFieldItem, FormSubmitItem, SectionContent, SectionItem } from "@/content/types";
 
 type ContactFormSectionProps = {
@@ -16,9 +14,11 @@ type FormValues = {
   telefono: string;
   interes: string;
   mensaje: string;
+  website: string;
 };
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 const isField = (item: SectionItem): item is FormFieldItem =>
   item.kind === "formField";
@@ -32,13 +32,14 @@ const initialValues: FormValues = {
   telefono: "",
   interes: "",
   mensaje: "",
+  website: "",
 };
 
 export function ContactFormSection({ section }: ContactFormSectionProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const microcopy = section.microcopy ?? [];
   const nextSteps = section.nextSteps ?? [];
   const nextStepsHeading = section.nextStepsHeading;
@@ -57,40 +58,71 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
       nextErrors.email = "Email inválido.";
     }
     if (!nextValues.interes.trim()) nextErrors.interes = "Selecciona un interés.";
+    if (!nextValues.mensaje.trim() || nextValues.mensaje.trim().length < 10) {
+      nextErrors.mensaje = "Cuéntanos un poco más (mínimo 10 caracteres).";
+    }
     return nextErrors;
   };
 
   const handleChange = (name: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
+    if (status === "error") setStatus("idle");
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (status === "loading") return;
     const nextErrors = validate(values);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    setSubmitted(true);
+    setStatus("loading");
+    setSubmitError(null);
 
-    const subject = `Contacto ${values.interes} - ${values.empresa}`;
-    const body = [
-      `Nombre: ${values.nombre}`,
-      `Empresa: ${values.empresa}`,
-      `Email: ${values.email}`,
-      `Teléfono: ${values.telefono || "No informado"}`,
-      `Interés: ${values.interes}`,
-      "",
-      values.mensaje,
-    ].join("\n");
+    const message = values.interes
+      ? `Interés: ${values.interes}\n\n${values.mensaje}`
+      : values.mensaje;
 
-    const mailto = `mailto:${siteContent.contact.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.nombre,
+          email: values.email,
+          company: values.empresa || undefined,
+          phone: values.telefono || undefined,
+          message,
+          source: "contacto",
+          website: values.website,
+        }),
+      });
 
-    setMailtoUrl(mailto);
+      const data = await response.json().catch(() => null);
 
-    // TODO: conectar submit a un API route o webhook real.
+      if (!response.ok || !data?.ok) {
+        const errorCode = data?.error ?? "UNKNOWN";
+        const errorMessages: Record<string, string> = {
+          VALIDATION_ERROR: "Revisa los campos e intenta nuevamente.",
+          RATE_LIMIT: "Demasiados intentos, intenta más tarde.",
+          EMAIL_SEND_FAILED:
+            "No pudimos enviar el mensaje. Intenta nuevamente.",
+        };
+        setSubmitError(
+          errorMessages[errorCode] ?? "Ocurrió un error inesperado.",
+        );
+        setStatus("error");
+        return;
+      }
+
+      setValues(initialValues);
+      setErrors({});
+      setStatus("success");
+    } catch {
+      setSubmitError("Ocurrió un error inesperado.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -106,6 +138,18 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+          <div className="sr-only" aria-hidden="true">
+            <label htmlFor="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={values.website}
+              onChange={(event) => handleChange("website", event.target.value)}
+            />
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
             {fields.map((field) => {
               const id = `contact-${field.name}`;
@@ -198,25 +242,28 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
 
           <button
             type="submit"
-            className="inline-flex px-6 py-3 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors"
+            className="inline-flex px-6 py-3 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors disabled:cursor-not-allowed disabled:opacity-70"
+            disabled={status === "loading"}
           >
-            {submitItem?.label ?? "Enviar solicitud"}
+            {status === "loading"
+              ? "Enviando..."
+              : submitItem?.label ?? "Enviar solicitud"}
           </button>
 
-          {submitted ? (
+          {status === "success" ? (
             <div
               role="status"
               className="rounded-md border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-violet-200"
             >
               <p>Gracias por tu interés. Te contactaremos pronto.</p>
-              {mailtoUrl ? (
-                <a
-                  href={mailtoUrl}
-                  className="mt-2 inline-flex text-sm underline underline-offset-4"
-                >
-                  Enviar también por correo
-                </a>
-              ) : null}
+            </div>
+          ) : null}
+          {status === "error" && submitError ? (
+            <div
+              role="alert"
+              className="rounded-md border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-200"
+            >
+              <p>{submitError}</p>
             </div>
           ) : null}
         </form>

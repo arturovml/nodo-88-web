@@ -75,7 +75,7 @@ export const contactoPageContent = {
           name: "mensaje",
           label: "Mensaje",
           type: "textarea",
-          required: false,
+          required: true,
           placeholder: "Cuéntanos sobre tu operación y objetivos.",
         },
         {

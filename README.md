@@ -105,6 +105,35 @@ Crea un `.env.local` en la raíz:
 NEXT_PUBLIC_SITE_URL=https://tudominio.com
 ```
 
+## Formulario de contacto (Resend)
+
+Variables requeridas:
+
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL` (ej. `web-no-reply@mail.nodo88.com.mx`)
+- `CONTACT_TO_EMAIL` (ej. `contacto@nodo88.com.mx`)
+- `CONTACT_FROM_NAME` (opcional, por defecto `Nodo 88`)
+
+Probar endpoint:
+
+```bash
+curl -X POST "http://localhost:3000/api/contact" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Jane Doe",
+    "email": "jane@empresa.com",
+    "company": "Empresa Demo",
+    "phone": "+52 55 1234 5678",
+    "message": "Hola, me interesa una demo.",
+    "source": "contacto"
+  }'
+```
+
+Rate limit:
+
+- Se usa un `Map` in-memory (ver `src/lib/contact/rateLimit.ts`).
+- En serverless/cold starts se reinicia; migra a Upstash/Redis manteniendo `checkRateLimit`.
+
 ## Cómo usarlo como base para un nuevo cliente
 
 1. Actualiza marca y navegación en `src/content/site.ts`.
